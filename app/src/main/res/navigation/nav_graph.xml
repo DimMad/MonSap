@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/userAccountSummaryFragment">
+
+    <fragment
+        android:id="@+id/userAccountSummaryFragment"
+        android:name="test.techtest.moneysapling.useraccountsummary.UserAccountSummaryFragment"
+        android:label="fragment_user_account_summary"
+        tools:layout="@layout/fragment_user_account_summary" >
+        <action
+            android:id="@+id/action_userAccountSummaryFragment_to_accountTransactionsFragment"
+            app:destination="@id/accountTransactionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountTransactionsFragment"
+        android:name="test.techtest.moneysapling.accounttransactions.AccountTransactionsFragment"
+        android:label="fragment_account_transactions"
+        tools:layout="@layout/fragment_account_transactions" />
+</navigation>
