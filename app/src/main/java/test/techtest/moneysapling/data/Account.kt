@@ -14,3 +14,10 @@ data class Account(
     @Json(name = "current_balance_in_base")
     val currentBalanceInBase: Double
 )
+
+@JsonClass(generateAdapter = true)
+data class Accounts(
+    @Json(name = "accounts")
+    val accounts: List<Account>
+)
+
