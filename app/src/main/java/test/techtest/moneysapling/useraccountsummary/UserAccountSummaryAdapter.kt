@@ -2,7 +2,9 @@ package test.techtest.moneysapling.useraccountsummary
 
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -17,10 +19,17 @@ class UserAccountSummaryAdapter :
         private val binding: ListItemSummaryBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         init {
-            binding.setClickListener {
+            binding.setClickListener { view ->
                 Timber.d("Account summary item clicked...")
-                // TODO: Code here to start transactions screen
+                binding.account?.let { account ->
+                    navigate(account, view)
+                }
             }
+        }
+
+        private fun navigate(account: Account, view: View) {
+            val direction = UserAccountSummaryFragmentDirections.actionUserAccountSummaryFragmentToAccountTransactionsFragment(account.id, account.name)
+            view.findNavController().navigate(direction)
         }
 
         fun bind(item: Account) {
