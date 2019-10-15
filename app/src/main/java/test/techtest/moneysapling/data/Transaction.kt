@@ -14,3 +14,9 @@ data class Transaction(
     val description: String,
     val id: Int
 )
+
+@JsonClass(generateAdapter = true)
+data class Transactions(
+    @Json(name = "transactions")
+    val transactions: List<Transaction>
+)

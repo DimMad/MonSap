@@ -10,7 +10,7 @@ import test.techtest.moneysapling.data.Account
  */
 class UserAccountSummaryRepository private constructor(
     private val userAccountSummaryLocalDataSource: UserAccountSummaryDataSource
-): UserAccountSummaryDataSource {
+) : UserAccountSummaryDataSource {
 
     companion object {
         private var instance: UserAccountSummaryRepository? = null
@@ -20,7 +20,7 @@ class UserAccountSummaryRepository private constructor(
     }
 
     override suspend fun getUserAccountSummary(): List<Account>? {
-        return userAccountSummaryLocalDataSource.getUserAccountSummary()
+        return userAccountSummaryLocalDataSource.getUserAccountSummary()?.sortedWith(compareBy({ it.name }, { it.institution }))
     }
 
 }

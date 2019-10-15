@@ -15,9 +15,13 @@ import timber.log.Timber
 class UserAccountSummaryAdapter :
     ListAdapter<Account, RecyclerView.ViewHolder>(AccountSummaryDiffCallback()) {
 
+    private val headers = ArrayList<String>()
+
     class UserSummaryItemViewHolder(
-        private val binding: ListItemSummaryBinding
+        private val binding: ListItemSummaryBinding,
+        private val headers: ArrayList<String>
     ) : RecyclerView.ViewHolder(binding.root) {
+
         init {
             binding.setClickListener { view ->
                 Timber.d("Account summary item clicked...")
@@ -28,13 +32,20 @@ class UserAccountSummaryAdapter :
         }
 
         private fun navigate(account: Account, view: View) {
-            val direction = UserAccountSummaryFragmentDirections.actionUserAccountSummaryFragmentToAccountTransactionsFragment(account.id, account.name)
+            val direction =
+                UserAccountSummaryFragmentDirections.actionUserAccountSummaryFragmentToAccountTransactionsFragment(
+                    account.id,
+                    account.institution,
+                    account.name,
+                    account.currentBalance.toFloat()
+                )
             view.findNavController().navigate(direction)
         }
 
         fun bind(item: Account) {
             binding.apply {
                 account = item
+                needsHeader = if (headers.contains(item.institution)) true else !headers.add(item.institution)
                 executePendingBindings()
             }
         }
@@ -46,7 +57,8 @@ class UserAccountSummaryAdapter :
                 LayoutInflater.from(parent.context),
                 parent,
                 false
-            )
+            ),
+            headers
         )
     }
 

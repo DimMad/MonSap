@@ -23,7 +23,13 @@
             android:name="accountId"
             app:argType="integer" />
         <argument
+            android:name="institution"
+            app:argType="string" />
+        <argument
             android:name="accountName"
             app:argType="string" />
+        <argument
+            android:name="balance"
+            app:argType="float" />
     </fragment>
 </navigation>

@@ -5,7 +5,17 @@
 
     <data>
 
+        <variable
+            name="title"
+            type="String" />
 
+        <variable
+            name="accountName"
+            type="String" />
+
+        <variable
+            name="balance"
+            type="Double" />
 
     </data>
 
@@ -22,7 +32,7 @@
             android:paddingBottom="72dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:listitem="@layout/list_item_summary" />
+            tools:listitem="@layout/list_item_transactions" />
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/app_bar_container"
@@ -41,14 +51,15 @@
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    app:layout_collapseMode="parallax"
+                    app:contentInsetStartWithNavigation="0dp"
+                    app:layout_collapseMode="pin"
                     app:navigationIcon="@drawable/ic_arrow_back_black_24dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="?attr/actionBarSize"
                         android:gravity="center"
-                        android:text="@string/app_name"
+                        android:text="@{title}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5" />
 
                 </androidx.appcompat.widget.Toolbar>
@@ -67,7 +78,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="38sp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@{accountName}"
+                    android:textSize="28sp"
+                    tools:text="Account" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="32sp"
+                    app:balance="@{balance}"
                     tools:text="JPY 9999" />
 
             </LinearLayout>

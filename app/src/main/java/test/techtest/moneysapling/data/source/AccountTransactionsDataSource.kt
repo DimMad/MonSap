@@ -10,7 +10,7 @@ import test.techtest.moneysapling.data.Transaction
  */
 interface AccountTransactionsDataSource {
 
-    suspend fun getAccountTrasactions(): List<Transaction>?
+    suspend fun getAccountTransactions(accountId: Int): List<Transaction>?
 
     // TODO: Add other data access functions
 
