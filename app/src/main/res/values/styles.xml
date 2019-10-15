@@ -12,11 +12,4 @@
     <item name="android:windowTranslucentStatus">true</item>
 </style>
 
-<style name="Theme.MoneySapling.NoActionBar">
-    <item name="windowActionBar">false</item>
-    <item name="windowNoTitle">true</item>
-</style>
-
-<style name="Theme.MiniMercari.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar"/>
-
 </resources>

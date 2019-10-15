@@ -6,7 +6,6 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
-import java.time.format.DateTimeFormatter
 
 /*
  * Binding Adapter functions.

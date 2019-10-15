@@ -28,6 +28,8 @@ class UserAccountSummaryViewModel(private val repository: UserAccountSummaryData
         getSummary()
     }
 
+    // A warning is shown here. Not fixing as code that could use this is missing.
+    // If indeed is not user from outside then can be private
     fun getSummary() {
         viewModelScope.launch {
             summaryState.value = repository.getUserAccountSummary()

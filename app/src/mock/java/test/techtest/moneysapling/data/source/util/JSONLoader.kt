@@ -6,7 +6,7 @@ import android.content.Context
  * Helper class for the mocks.
  * Loads and provides the data to the repositories.
  */
-class JSONLoader(val context: Context) {
+class JSONLoader(private val context: Context) {
 
     fun loadAccounts(): String {
         return context.assets.open("accounts.json").bufferedReader().use { it.readText() }

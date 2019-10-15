@@ -2,13 +2,20 @@
 
 <!--
     Google Material Design Color Palette for Android http://www.google.com/design/spec/style/color.html#color-ui-color-palette
-    Spreadsheet used to create this reosurce - http://bit.ly/mdcolor_spreadsheet
+    Spreadsheet used to create this resource - http://bit.ly/mdcolor_spreadsheet
     Link to this colors.xml resource file - http://bit.ly/mdcolorsxml
 
     Harshad Kale
     https://github.com/kalehv
 -->
 
+<!--
+    Most of the resources here are unused and show in the lint results.
+    I personally like this list and find it very useful.
+    If you really consider it a 'Performance" issue as the linter says the it can be removed.
+    Otherwise I would add a lint.xml in the project excluding this file (or even better a separate one)
+    from the analysis.
+-->
 <resources>
 
     <color name="red_50">#FFEBEE</color>
