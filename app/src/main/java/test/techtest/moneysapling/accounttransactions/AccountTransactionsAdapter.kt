@@ -7,20 +7,18 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import test.techtest.moneysapling.data.Transaction
 import test.techtest.moneysapling.databinding.ListItemTransactionsBinding
-import timber.log.Timber
 
 
+/**
+ * [RecyclerView] [ListAdapter] class for Transactions screen.
+ * Gets the formatted data and place them in the list.
+ */
 class AccountTransactionsAdapter :
     ListAdapter<Transaction, RecyclerView.ViewHolder>(AccountTransactionsDiffCallback()) {
 
     class AccountTransactionsItemViewHolder(
         private val binding: ListItemTransactionsBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        init {
-            binding.setClickListener {
-                Timber.d("Transactions item clicked...")
-            }
-        }
 
         fun bind(item: Transaction) {
             binding.apply {
@@ -47,6 +45,9 @@ class AccountTransactionsAdapter :
 
 }
 
+/**
+ * Utility class inheriting the Recycler'S [DiffUtil] to add/remove items from the list.
+ */
 private class AccountTransactionsDiffCallback : DiffUtil.ItemCallback<Transaction>() {
     override fun areItemsTheSame(oldItem: Transaction, newItem: Transaction): Boolean {
         return oldItem.id == newItem.id

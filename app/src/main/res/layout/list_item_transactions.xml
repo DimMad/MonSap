@@ -6,10 +6,6 @@
     <data>
 
         <variable
-            name="clickListener"
-            type="android.view.View.OnClickListener" />
-
-        <variable
             name="transaction"
             type="test.techtest.moneysapling.data.Transaction" />
 
@@ -18,7 +14,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{clickListener}"
         android:orientation="horizontal"
         android:paddingTop="8dp"
         android:paddingBottom="8dp">

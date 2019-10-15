@@ -14,10 +14,11 @@ import test.techtest.moneysapling.databinding.FragmentAccountTransactionsBinding
 import test.techtest.moneysapling.util.Injection
 
 /**
- * A simple [Fragment] subclass.
+ * The [Fragment] for the transactions screen.
  */
 class AccountTransactionsFragment : Fragment() {
 
+    // Navigation SafeArgs holds the data sent over when an account is selected
     private val args: AccountTransactionsFragmentArgs by navArgs()
 
     private val transactionsViewModel: AccountTransactionsViewModel by viewModels {
@@ -37,6 +38,8 @@ class AccountTransactionsFragment : Fragment() {
 
         transactionsViewModel.setTitle(args.institution)
         transactionsViewModel.setHeader(args.accountName, args.balance.toDouble())
+        // Asks the ViewModel to fetch the data from the repository
+        // TODO: Needs refactoring to add refreshing capabilities
         transactionsViewModel.getTransactions(args.accountId)
 
         binding.toolbar.setNavigationOnClickListener { view ->
@@ -46,6 +49,9 @@ class AccountTransactionsFragment : Fragment() {
         return binding.root
     }
 
+    /**
+     * Sets all the ViewModel observers and refreshes the UI bindings
+     */
     private fun subscribeUi(
         binding: FragmentAccountTransactionsBinding,
         adapter: AccountTransactionsAdapter

@@ -20,6 +20,8 @@ class UserAccountSummaryRepository private constructor(
     }
 
     override suspend fun getUserAccountSummary(): List<Account>? {
+        // Uses the magic of Koltin to sort the data fist by name and then by institution
+        // effectively grouping them (user story requirement)
         return userAccountSummaryLocalDataSource.getUserAccountSummary()?.sortedWith(compareBy({ it.name }, { it.institution }))
     }
 

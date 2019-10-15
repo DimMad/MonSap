@@ -8,6 +8,9 @@ import kotlinx.coroutines.launch
 import test.techtest.moneysapling.data.Account
 import test.techtest.moneysapling.data.source.UserAccountSummaryDataSource
 
+/**
+ * The ViewModel used in [UserAccountSummaryFragment]
+ */
 class UserAccountSummaryViewModel(private val repository: UserAccountSummaryDataSource) :
     ViewModel() {
 
@@ -19,6 +22,8 @@ class UserAccountSummaryViewModel(private val repository: UserAccountSummaryData
     val balanceTotal: LiveData<Double>
         get() = balanceTotalState
 
+    // Load data in init
+    // TODO: needs some code for refreshing
     init {
         getSummary()
     }

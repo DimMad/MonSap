@@ -12,6 +12,10 @@ import test.techtest.moneysapling.data.Account
 import test.techtest.moneysapling.databinding.ListItemSummaryBinding
 import timber.log.Timber
 
+/**
+ * [RecyclerView] [ListAdapter] class for Accounts screen.
+ * Gets the formatted data and place them in the list.
+ */
 class UserAccountSummaryAdapter :
     ListAdapter<Account, RecyclerView.ViewHolder>(AccountSummaryDiffCallback()) {
 
@@ -31,6 +35,9 @@ class UserAccountSummaryAdapter :
             }
         }
 
+        /**
+         * Uses Jetpack Navigation SafeArgs to navigate to Transactions screen with required data.
+         */
         private fun navigate(account: Account, view: View) {
             val direction =
                 UserAccountSummaryFragmentDirections.actionUserAccountSummaryFragmentToAccountTransactionsFragment(
@@ -69,6 +76,9 @@ class UserAccountSummaryAdapter :
 
 }
 
+/**
+ * Utility class inheriting the Recycler'S [DiffUtil] to add/remove items from the list.
+ */
 private class AccountSummaryDiffCallback : DiffUtil.ItemCallback<Account>() {
     override fun areItemsTheSame(oldItem: Account, newItem: Account): Boolean {
         return oldItem.id == newItem.id

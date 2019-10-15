@@ -12,7 +12,9 @@ import test.techtest.moneysapling.databinding.FragmentUserAccountSummaryBinding
 import test.techtest.moneysapling.util.Injection
 
 /**
- * A simple [Fragment] subclass.
+ * The [Fragment] for the accounts screen.
+ *
+ * TODO: Needs some logic (or in ViewModel) to handle refresh
  */
 class UserAccountSummaryFragment : Fragment() {
 
@@ -34,7 +36,13 @@ class UserAccountSummaryFragment : Fragment() {
         return binding.root
     }
 
-    private fun subscribeUi(binding: FragmentUserAccountSummaryBinding, adapter: UserAccountSummaryAdapter) {
+    /**
+     * Sets all the ViewModel observers and refreshes the UI bindings
+     */
+    private fun subscribeUi(
+        binding: FragmentUserAccountSummaryBinding,
+        adapter: UserAccountSummaryAdapter
+    ) {
         summaryViewModel.summary.observe(viewLifecycleOwner) { summary ->
             adapter.submitList(summary)
         }

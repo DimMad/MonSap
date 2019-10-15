@@ -18,15 +18,12 @@ class AccountTransactionsRepository private constructor(
         private var instance: AccountTransactionsRepository? = null
 
         fun getInstance(accountTransactionsLocalDataSource: AccountTransactionsDataSource) =
-            instance ?: AccountTransactionsRepository(accountTransactionsLocalDataSource).also {
-                instance = it
-            }
+            instance ?: AccountTransactionsRepository(accountTransactionsLocalDataSource).also { instance = it }
     }
 
     override suspend fun getAccountTransactions(accountId: Int): List<Transaction>? {
         // TODO: Naive comparison using the provided strings. Should change to proper date handling.
-        return accountTransactionsLocalDataSource.getAccountTransactions(accountId)
-            ?.sortedWith(compareByDescending { it.date })
+        return accountTransactionsLocalDataSource.getAccountTransactions(accountId)?.sortedWith(compareByDescending { it.date })
     }
 
 }

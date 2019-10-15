@@ -8,6 +8,9 @@ import kotlinx.coroutines.launch
 import test.techtest.moneysapling.data.Transaction
 import test.techtest.moneysapling.data.source.AccountTransactionsDataSource
 
+/**
+ * The ViewModel used in [AccountTransactionsFragment]
+ */
 class AccountTransactionsViewModel(private val repository: AccountTransactionsDataSource) :
     ViewModel() {
 
@@ -27,7 +30,8 @@ class AccountTransactionsViewModel(private val repository: AccountTransactionsDa
     val accountBalance: LiveData<Double>
         get() = accountBalanceState
 
-    private val isDataAvailable = MutableLiveData<Boolean>()
+    // TODO: use the commented property to build logic that stops the Repository to be called each time.
+//    private val isDataAvailable = MutableLiveData<Boolean>()
 
     fun setTitle(title: String) {
         titleState.value = title

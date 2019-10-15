@@ -3,6 +3,11 @@ package test.techtest.moneysapling.data
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
+/**
+ * Transaction Pojo (Kojo???)
+ *
+ * Annotations from Moshi JSON parser
+ */
 @JsonClass(generateAdapter = true)
 data class Transaction(
     @Json(name = "account_id")
@@ -15,6 +20,9 @@ data class Transaction(
     val id: Int
 )
 
+/**
+ * Utility class to make Moshi parsing easier
+ */
 @JsonClass(generateAdapter = true)
 data class Transactions(
     @Json(name = "transactions")

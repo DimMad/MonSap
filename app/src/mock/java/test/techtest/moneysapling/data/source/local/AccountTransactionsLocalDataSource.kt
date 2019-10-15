@@ -8,7 +8,11 @@ import test.techtest.moneysapling.data.Transactions
 import test.techtest.moneysapling.data.source.AccountTransactionsDataSource
 import test.techtest.moneysapling.data.source.util.JSONLoader
 
-
+/**
+ * Mock local data source just loads the data from the provided JSON.
+ *
+ * TODO: Use Room (or anything else) to build a db.
+ */
 class AccountTransactionsLocalDataSource private constructor(
     private val json: JSONLoader
 ) : AccountTransactionsDataSource {
@@ -31,5 +35,4 @@ class AccountTransactionsLocalDataSource private constructor(
 
         return adapter.fromJson(jsonString)?.transactions
     }
-
 }

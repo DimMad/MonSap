@@ -2,6 +2,10 @@ package test.techtest.moneysapling.data.source.util
 
 import android.content.Context
 
+/**
+ * Helper class for the mocks.
+ * Loads and provides the data to the repositories.
+ */
 class JSONLoader(val context: Context) {
 
     fun loadAccounts(): String {
