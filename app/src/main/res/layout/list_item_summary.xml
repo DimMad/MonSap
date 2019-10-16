@@ -71,6 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 app:balance="@{account.currentBalance}"
+                app:currency="@{account.currency}"
                 tools:text="JPY 9999" />
 
         </LinearLayout>

@@ -29,9 +29,11 @@ class UserAccountSummaryViewModel(private val repository: UserAccountSummaryData
             // FIXME: A bug here with the balance when rotating the screen
             val accounts = repository.getUserAccountSummary()
             summaryState.value = accounts
+            var sum = 0.0
             for (account in accounts!!) {
-                balanceTotalState.value = balanceTotalState.value?.plus(account.currentBalance)
+               sum += account.currentBalance
             }
+            balanceTotalState.value = sum
         }
     }
 }

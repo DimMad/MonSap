@@ -70,6 +70,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="38sp"
                     app:balance="@{balanceTotal}"
+                    app:currency="@{`JPY`}"
                     tools:text="JPY 9999" />
 
             </LinearLayout>

@@ -33,11 +33,8 @@ class AccountTransactionsViewModel(private val repository: AccountTransactionsDa
     // TODO: use the commented property to build logic that stops the Repository to be called each time.
 //    private val isDataAvailable = MutableLiveData<Boolean>()
 
-    fun setTitle(title: String) {
-        titleState.value = title
-    }
-
-    fun setHeader(name: String, balance: Double) {
+    fun setHeader(institution: String, name: String, balance: Double) {
+        titleState.value = institution
         accountNameState.value = name
         accountBalanceState.value = balance
     }

@@ -6,17 +6,21 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
+import java.util.*
 
 /*
  * Binding Adapter functions.
  * Used to adjust data before providing it to the xml layouts that use the Data Binding library.
  */
 
-@BindingAdapter("balance")
-fun bindAccountBalance(view: TextView, balance: Double) {
-    // TODO: improve over price presentation.
-    val formattedPrice = NumberFormat.getCurrencyInstance()
-    view.text = formattedPrice.format(balance)
+@BindingAdapter(value = ["balance", "currency"])
+fun bindAccountBalance(view: TextView, balance: Double, currency: String) {
+    // TODO: improve over price presentation. Only the summary list shows the correct currency.
+    val formatter = NumberFormat.getCurrencyInstance()
+    formatter.currency = Currency.getInstance(currency)
+    formatter.minimumFractionDigits = 0
+    formatter.maximumFractionDigits = 2
+    view.text = formatter.format(balance)
 }
 
 @SuppressLint("SimpleDateFormat")
