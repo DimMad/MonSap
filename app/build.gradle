@@ -108,6 +108,8 @@ dependencies {
     testImplementation "androidx.test.ext:truth:$truthVersion"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+    testImplementation "androidx.arch.core:core-testing:$coreTestingVersion"
+    testImplementation "io.mockk:mockk:$mockkVersion"
     androidTestImplementation "androidx.test:runner:$runnerVersion"
     androidTestImplementation "androidx.arch.core:core-testing:$coreTestingVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"

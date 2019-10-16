@@ -40,6 +40,7 @@ class AccountTransactionsFragment : Fragment() {
         transactionsViewModel.setHeader(args.accountName, args.balance.toDouble())
         // Asks the ViewModel to fetch the data from the repository
         // TODO: Needs refactoring to add refreshing capabilities
+        // Called each time under circumstances defeating the purpose of lifecycle aware ViewModels
         transactionsViewModel.getTransactions(args.accountId)
 
         binding.toolbar.setNavigationOnClickListener { view ->

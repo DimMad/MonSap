@@ -33,6 +33,10 @@ class UserAccountSummaryFragment : Fragment() {
         binding.accountSummaryList.adapter = summaryAdapter
         subscribeUi(binding, summaryAdapter)
 
+        // Asks the ViewModel to fetch data from the repository
+        // TODO: refactoring required. Called each time under circumstances defeating the purpose of lifecycle aware ViewModels
+        summaryViewModel.getSummary()
+
         return binding.root
     }
 

@@ -22,19 +22,15 @@ class UserAccountSummaryViewModel(private val repository: UserAccountSummaryData
     val balanceTotal: LiveData<Double>
         get() = balanceTotalState
 
-    // Load data in init
-    // TODO: needs some code for refreshing
-    init {
-        getSummary()
-    }
-
     // A warning is shown here. Not fixing as code that could use this is missing.
     // If indeed is not user from outside then can be private
     fun getSummary() {
         viewModelScope.launch {
-            summaryState.value = repository.getUserAccountSummary()
-            for (balance in summary.value!!) {
-                balanceTotalState.value = balanceTotalState.value?.plus(balance.currentBalance)
+            // FIXME: A bug here with the balance when rotating the screen
+            val accounts = repository.getUserAccountSummary()
+            summaryState.value = accounts
+            for (account in accounts!!) {
+                balanceTotalState.value = balanceTotalState.value?.plus(account.currentBalance)
             }
         }
     }
